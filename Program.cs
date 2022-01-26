@@ -34,6 +34,8 @@ namespace Fight_N_Stuff
                 for (int i = 0; i < 10; i++)
                 {
                     InitializeFight.ActivateFight(player.hp, player.atk, player.def, player.dead, player.name);
+                    Console.WriteLine("Well done. You have defeated the Enemies. Your Health has been restored!");
+                    Console.WriteLine("You Have ecounted a battle!");
                 }
             }
         }
@@ -52,6 +54,7 @@ namespace Fight_N_Stuff
             double[] monsterHp = { monster1.hp, monster2.hp, monster3.hp };
             while (AllDead(monsterHp, monsterDead) == false)
             {
+                Console.WriteLine("YOUR HEALTH: " + playerHp);
                 Console.WriteLine("Choose an Enemy to attack! (Just type in the number of the enemy!)");
                 if (monsterDead[0] == false)
                 {
@@ -122,7 +125,8 @@ namespace Fight_N_Stuff
         static public bool IfElemental()
         {
             Random random1 = new Random();
-            int ifElmnt = random1.Next() * (100 - 1) + 1;
+            double ifElmnt = random1.Next() * (100 - 1) + 1;
+            Console.WriteLine(ifElmnt);
             if (ifElmnt <= Difficulty.elmntChance)
             {
                 return true;
@@ -185,7 +189,7 @@ namespace Fight_N_Stuff
     public class Enemies
     {
         public double hp = 100;
-        public double atk = 10;
+        public double atk = 8;
         public double def = 2;
         public bool dead;
 
@@ -234,19 +238,19 @@ namespace Fight_N_Stuff
             if (charClass == "berserker")
             {
                 hp = hp + 150;
-                atk = atk + 4;
+                atk = atk + 12;
                 def = def - 3;
             }
             else if (charClass == "paladin")
             {
-                hp = hp + 25;
-                atk = atk + 1;
+                hp = hp + 75;
+                atk = atk - 2;
                 def = def + 3;
             }
             else if (charClass == "rogue")
             {
                 hp = hp - 50;
-                atk = atk + 10;
+                atk = atk + 23;
                 def = def - 2;
             }
         }
